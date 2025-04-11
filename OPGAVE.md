@@ -55,7 +55,7 @@ Følgende wireframe-illustration viser en mulig opdeling af systemet:
 ### 3. SMK API Integration
 
 - Ved oprettelse eller redigering af et event skal kuratoren kunne søge i SMK's API (f.eks. via et søgefelt) for at finde kunstværker, der skal tilføjes eventet.
-- Hvert værk i SMK's API har en unik ID eller URL, som gemmes i eventets paintingsIds-felt.
+- Hvert værk i SMK's API har en unik ID eller URL, som gemmes i eventets artworkIds-felt.
 - Public side: Viser værkerne med billede (thumbnail) og relevante metadata, så besøgende kan se, hvilke værker der bliver udstillet.
 
 ### 4. Booking og Grænser
@@ -87,7 +87,7 @@ Følgende wireframe-illustration viser en mulig opdeling af systemet:
 | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Som kurator: Jeg vil logge ind, så kun jeg kan oprette eller slette events.                                       | Systemet præsenterer en login-side (via Clerk). Ved succesfuld login får kuratoren adgang til at se, oprette og redigere events.                                                    |
 | Som kurator: Jeg vil oprette et nyt event med titel, dato, lokation, beskrivelse og udvalgte SMK-værker.          | En POST-anmodning til /events opretter et event, validerer dato og lokation, og returnerer det oprettede event med unikt ID.                                                        |
-| Som kurator: Jeg vil kunne søge i SMK's API for at finde kunstværker til eventet.                                 | Frontend viser et søgefelt, der sender forespørgsler til SMK. Værker præsenteres visuelt, og kuratoren kan vælge hvilke ID'er der skal tilføjes i paintingsIds.                     |
+| Som kurator: Jeg vil kunne søge i SMK's API for at finde kunstværker til eventet.                                 | Frontend viser et søgefelt, der sender forespørgsler til SMK. Værker præsenteres visuelt, og kuratoren kan vælge hvilke ID'er der skal tilføjes i artworkIds.                       |
 | Som kurator: Jeg vil se en liste over mine events og redigere eller slette dem, hvis nødvendigt.                  | Systemet returnerer en liste over events (via GET /events), og for hvert event en "Redigér" og "Slet"-knap. Ved sletning returneres bekræftelse, ved redigering tjekkes konflikter. |
 | Som bruger: Jeg vil se en liste over tilgængelige events, så jeg kan vælge, hvilket jeg vil besøge.               | En GET-anmodning til /events returnerer offentlige events. Brugeren kan klikke ind på det enkelte event for at se detaljer.                                                         |
 | Som bruger: Jeg vil se detaljer for et event (titel, lokation, billeder mv.), så jeg kan få de fulde oplysninger. | En GET-anmodning til /events/:id returnerer detaljer om det valgte event, inklusiv SMK-værker.                                                                                      |

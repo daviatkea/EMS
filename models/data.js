@@ -107,7 +107,7 @@ function generateEvents() {
       curator: "Anna K.",
       totalTickets: 50,
       bookedTickets: randomTickets(50),
-      paintingsIds: [],
+      artworkIds: [],
     },
     {
       id: uuidv4(),
@@ -119,21 +119,21 @@ function generateEvents() {
       curator: "Jonas B.",
       totalTickets: 30,
       bookedTickets: randomTickets(30),
-      paintingsIds: [],
+      artworkIds: [],
     },
   ];
 }
 
 let events = generateEvents();
 
-// Migration: Sikrer at alle eksisterende events har paintingsIds
+// Migration: Sikrer at alle eksisterende events har artworkIds
 function migrateEvents() {
   events.forEach((e) => {
     if (typeof e.description === "undefined") {
       e.description = "";
     }
-    if (!e.paintingsIds) {
-      e.paintingsIds = [];
+    if (!e.artworkIds) {
+      e.artworkIds = [];
     }
   });
 }

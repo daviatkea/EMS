@@ -19,9 +19,9 @@ exports.getEvents = async (req, res, next) => {
   try {
     const locationsMap = new Map(locations.map((loc) => [loc.id, loc]));
     const enriched = events.map((e) => {
-      // Hvis paintingsIds ikke findes eller er tomt, tilføj en placeholder
-      if (!e.paintingsIds || e.paintingsIds.length === 0) {
-        e.paintingsIds = [getRandomPlaceholder()];
+      // Hvis artworkIds ikke findes eller er tomt, tilføj en placeholder
+      if (!e.artworkIds || e.artworkIds.length === 0) {
+        e.artworkIds = [getRandomPlaceholder()];
       }
       const location = locationsMap.get(e.locationId);
       return { ...e, location };
@@ -40,8 +40,8 @@ exports.getEventById = async (req, res, next) => {
       return res.status(404).json({ message: "Event not found." });
     }
 
-    if (!event.paintingsIds || event.paintingsIds.length === 0) {
-      event.paintingsIds = [getRandomPlaceholder()];
+    if (!event.artworkIds || event.artworkIds.length === 0) {
+      event.artworkIds = [getRandomPlaceholder()];
     }
     const location = locations.find((loc) => loc.id === event.locationId);
     res.json({ ...event, location });
@@ -52,7 +52,7 @@ exports.getEventById = async (req, res, next) => {
 
 exports.createEvent = async (req, res, next) => {
   try {
-    const { title, description, date, locationId, curator, paintingsIds } =
+    const { title, description, date, locationId, curator, artworkIds } =
       req.body;
 
     if (!allowedDates.includes(date)) {
@@ -81,7 +81,7 @@ exports.createEvent = async (req, res, next) => {
       curator,
       totalTickets: location.maxGuests,
       bookedTickets: 0,
-      paintingsIds: paintingsIds || [],
+      artworkIds: artworkIds || [],
     };
     events.push(newEvent);
     res.status(201).json(newEvent);
@@ -93,7 +93,7 @@ exports.createEvent = async (req, res, next) => {
 exports.updateEvent = async (req, res, next) => {
   try {
     const eventId = req.params.id;
-    const { title, date, locationId, curator, description, paintingsIds } =
+    const { title, date, locationId, curator, description, artworkIds } =
       req.body;
 
     // Find det event, der skal opdateres.
@@ -138,7 +138,7 @@ exports.updateEvent = async (req, res, next) => {
     }
     if (curator !== undefined) currentEvent.curator = curator;
     if (description !== undefined) currentEvent.description = description;
-    if (paintingsIds !== undefined) currentEvent.paintingsIds = paintingsIds;
+    if (artworkIds !== undefined) currentEvent.artworkIds = artworkIds;
 
     // Gem det opdaterede event.
     events[eventIndex] = currentEvent;
