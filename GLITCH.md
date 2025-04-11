@@ -10,7 +10,7 @@ Du har kun brug for én server pr. gruppe, så vælg én til at gøre det. Vi br
 
 ### Fjernserver
 
-(god til eksamen / portfolio, bør ikke bruges under udvikling). Sæt den op og test din løsning mod den en gang imellem.
+Sæt den op og test din løsning mod den en gang imellem.
 
 1. Fork dette repository
 2. Kopier URL'en, du skal bruge til at klone dit repo
@@ -23,19 +23,19 @@ Du har kun brug for én server pr. gruppe, så vælg én til at gøre det. Vi br
 
 ### Lokal server
 
-Bør bruges under udvikling. Det vil være hurtigere og bruge færre ressourcer.
+Bør bruges under udvikling. Det er hurtigere og bruger færre ressourcer.
 
 1. Klon dit repository
 2. `npm install`
 3. `npm run dev`
 
-Dette giver dig en server, der kører på http://localhost:8080. Prøv at åbne den i din browser og tilføj `/events` i slutningen
+Dette giver dig en server, der kører på `http://localhost:8080`. Prøv at åbne den i din browser og tilføj `/events` i slutningen
 
 ### Bemærk venligst
 
-1. Fjernserveren lukker ned, når den kan. Så første gang du rammer den, kan der være en forsinkelse på 5-30 sekunder. Overvej at implementere en loader/spinner i jeres projekt?
+1. Fjernserveren (Glitch) lukker ned, når den kan. Så første gang du rammer den, kan der være en forsinkelse på 5-30 sekunder. Overvej derfor også at implementere en loader/spinner i jeres projekt.
 
-Dette vil sandsynligvis forstyrre Next ved serverside-fetching, dette er OK — det er trods alt en gratis service. Opdater blot siden, så virker alt fint.
+Dette vil sandsynligvis forstyrre Next.js ved serverside-fetching, hvilket er OK — det er trods alt en gratis service. Opdater blot siden, så virker alt fint.
 
 ### Endpoints
 
