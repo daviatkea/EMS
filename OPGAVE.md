@@ -50,7 +50,8 @@ Følgende wireframe-illustration viser en mulig opdeling af systemet:
 - Brugeren skal kunne booke billetter til eventet (`/events/:id/book`).
 - Booking-flowet skal tjekke, om eventet stadig har ledige pladser.
 
-[!NOTE] Denne side skal visuelt adskille sig fra kuratorens oprettelsesflow og vise værkerne i en mere visuel præsentation.
+> [!NOTE]
+> Denne side skal visuelt adskille sig fra kuratorens oprettelsesflow og vise værkerne i en mere visuel præsentation.
 
 ### 3. SMK API Integration
 
