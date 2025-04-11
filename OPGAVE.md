@@ -21,7 +21,7 @@ Følgende wireframe-illustration viser en mulig opdeling af systemet:
 - Kurator-side (bag login): Opret form, vælg SMK-værker, ret eksisterende events.
 - Offentlig eventside: Viser oversigt over værker, dato, lokation mm. Indeholder booking-formular.
 
-![Wireframe eksempel](wireframe.png)
+![Wireframe eksempel](public/wireframe.png)
 
 ## Krav til Systemet
 
