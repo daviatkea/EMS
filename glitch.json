@@ -1,6 +1,0 @@
-{
-  "start": "node server.js",
-  "install": {
-    "include": ["server.js", "package.json", "routes/**"]
-  }
-}
